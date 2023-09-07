@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8-ball</title>
+
+    <link rel="stylesheet" href="magic8ball.css">
+</head>
+
+<body>
+<div id="app"></div>
+
+
+<script>
+
+//Model
+let svarElement = document.getElementById('svarRute');
+let tilfeldigsetning = '';
+let nyTilfeldigSetning = '';      //For å unngå at det blir samme to ganger på rad
+let svar = [
+"It is certain",
+"Ask again later",
+"Yes",
+"Most likely",
+"As I see it, yes",
+"My sources say no",
+"Cannot predict now",
+"Outlook good",
+"Signs point to yes",
+"Ask again later",
+"Very doubtful",
+"Don't count on it",
+"Yes definitely",
+"Concentrate and ask again",
+];
+
+//View
+document.getElementById('app').innerHTML = /*HTML*/`
+<div class="kule">
+<div id="indreRing">8</div>
+<div id="svarRute">
+</div>
+</div>
+<button onclick="clickMe()">Klikk for å få svar</button>
+
+`
+
+
+//Controller
+function generateRandom(){
+    let svarElement = document.getElementById('svarRute');
+tilfeldigsetning = svar[Math.floor(Math.random() * svar.length)];
+svarElement.innerHTML = tilfeldigsetning;
+}
+
+function clickMe(){
+generateRandom();
+}
+
+</script>
+</body>
+</html>
